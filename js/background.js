@@ -1,3 +1,6 @@
+var tabId;
+var currentUrl;
+
 chrome.webNavigation.onBeforeNavigate.addListener(function(details) { 
     chrome.storage.sync.get('isStudying', function(res){
 		var isStudying = res.isStudying;
@@ -14,17 +17,12 @@ function promptUser() {
 
     chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 
-    	var tabId = tabs[0].id;
-    	var currentUrl = tabs[0].url;
+    	tabId = tabs[0].id;
+    	currentUrl = tabs[0].url;
 
     	chrome.tabs.update(tabId ,{
 			'url': 'promt.html',
 			'active': true
-		}, function() {
-			setTimeout(function(){
-				navigateBackToPage(tabId ,currentUrl);
-				// chrome.storage.sync.set({'isStudying': true});
-			}, 8000);
 		});
 
 	});
@@ -32,7 +30,7 @@ function promptUser() {
 
 chrome.runtime.onMessage.addListener(function(request, sender, callback) {
     if (request.canGoBack) {
-		 
+		navigateBackToPage(tabId, currentUrl);
     }
 });
 
