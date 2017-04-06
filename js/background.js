@@ -23,13 +23,18 @@ function promptUser() {
 		}, function() {
 			setTimeout(function(){
 				navigateBackToPage(tabId ,currentUrl);
-				//chrome.storage.sync.set({'isStudying': true});
+				// chrome.storage.sync.set({'isStudying': true});
 			}, 8000);
 		});
 
 	});
-
 }
+
+chrome.runtime.onMessage.addListener(function(request, sender, callback) {
+    if (request.canGoBack) {
+		 
+    }
+});
 
 function navigateBackToPage(tab, oldPage) {
 	chrome.tabs.update(tab ,{
