@@ -1,18 +1,25 @@
 var tabId;
 var currentUrl;
+var timerCanStudy = true;
+
 var blockedSites = [
 	{
 		site: '.google.'
 	}
 ];
 
+chrome.alarms.onAlarm.addListener(function(alarm) {
+	chrome.alarms.clear("studyAlarm");
+	timerCanStudy = true;
+	alert("Beep");
+});
+
 chrome.webNavigation.onBeforeNavigate.addListener(function(details) { 
     
-	// .includes("world");
     chrome.storage.sync.get('isStudying', function(res){
 		var isStudying = res.isStudying;
 
-		if (isStudying) {
+		if (isStudying && timerCanStudy) {
 
 			chrome.tabs.getSelected(null, function (tab) {
 				var url = new URL(tab.url);
@@ -21,6 +28,8 @@ chrome.webNavigation.onBeforeNavigate.addListener(function(details) {
 				blockedSites.forEach(function(e) {
 					if (domain.includes(e.site)) {
 						promptUser();
+						chrome.alarms.create("studyAlarm", {delayInMinutes: 1} );
+						timerCanStudy = false;					
 					}
 				});
 		

@@ -9,6 +9,7 @@
         "notifications",
         "webNavigation",
         "storage",
+        "alarms",
         "https://ajax.googleapis.com/"
     ],
     "background": {
