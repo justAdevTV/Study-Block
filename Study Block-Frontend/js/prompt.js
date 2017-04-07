@@ -19,6 +19,16 @@ document.getElementById("submit-btn").addEventListener("click", function(){
 });
 
 $(function() {
+
+	var url = '';
+
+	$.ajax({
+	  url: url,
+	  success:function(data){
+	    alert(data);
+	  }
+	});
+
 	$('.modal').modal();
 	$('#question').text('Sample question should go in this area');
 });
