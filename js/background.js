@@ -21,7 +21,7 @@ function promptUser() {
     	currentUrl = tabs[0].url;
 
     	chrome.tabs.update(tabId ,{
-			'url': 'promt.html',
+			'url': 'prompt.html',
 			'active': true
 		});
 

@@ -16,7 +16,7 @@
 	<!-- Compiled and minified JavaScript -->
 	<script src="js/materialize.min.js"></script>
 
-	<div class="row">
+	<div class="row center-div">
         <div class="col s12 m6 offset-m3">
           <div class="card grey lighten-4">
             <div class="card-content">
@@ -32,8 +32,8 @@
             	<div class="row">
             		<div class="input-field col s10 offset-s1">
 			        	<i class="material-icons prefix">mode_edit</i>
-			        	<textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-			        	<label for="icon_prefix2">Your response</label>
+			        	<textarea id="response-box" class="materialize-textarea"></textarea>
+			        	<label for="response-box" id="response-box-label">Your response</label>
 			        </div>
             	</div>
             	<div class="center">
@@ -49,7 +49,32 @@
         </div>
     </div>
 
-	<script type="text/javascript" src="js/promt.js"></script>
+    <!-- Modal Structure -->
+
+    <!-- Correct Modal -->
+    <div id="correct-modal" class="modal">
+        <div class="modal-content">
+          <h4>You're Correct!</h4>
+          <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
+    <!-- Wrong Modal -->
+    <div id="wrong-modal" class="modal">
+        <div class="modal-content">
+          <h4>You're Correct!</h4>
+          <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+         
+
+	<script type="text/javascript" src="js/prompt.js"></script>
 
 </body>
 </html>
