@@ -24,7 +24,7 @@
             	<br>
             	<div class="container">
             		<h5>Question</h5>
-            		<p id="question" class="flow-text">Sample question should go in this area.</p>   
+            		<p id="question" class="flow-text">Something went wrong.</p>   
             		<br>
 			        <br>
             		<h5>Response</h5>     		
@@ -55,21 +55,25 @@
     <div id="correct-modal" class="modal">
         <div class="modal-content">
           <h4>You're Correct!</h4>
-          <p>A bunch of text</p>
+          <p class="flow-text">Nice work! You can now continue procrastinating :)</p>
         </div>
         <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            <button class="btn waves-effect waves-light blue modal-action modal-close" id="submit-btn" name="action">Continue
+                <i class="material-icons right">send</i>
+            </button>
         </div>
     </div>
 
     <!-- Wrong Modal -->
     <div id="wrong-modal" class="modal">
         <div class="modal-content">
-          <h4>You're Correct!</h4>
-          <p>A bunch of text</p>
+          <h4>Better Luck Next Time</h4>
+          <p class="flow-text">Nice Try! You got it wrong, but you can now continue procrastinating.</p>
         </div>
         <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            <button class="btn waves-effect waves-light blue modal-action modal-close" id="submit-btn" name="action">Continue
+                <i class="material-icons right">send</i>
+            </button>
         </div>
     </div>
          
