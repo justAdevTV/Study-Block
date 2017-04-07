@@ -11,7 +11,6 @@ var blockedSites = [
 chrome.alarms.onAlarm.addListener(function(alarm) {
 	chrome.alarms.clear("studyAlarm");
 	timerCanStudy = true;
-	alert("Beep");
 });
 
 chrome.webNavigation.onBeforeNavigate.addListener(function(details) { 
