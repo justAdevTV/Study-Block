@@ -1,12 +1,30 @@
 var tabId;
 var currentUrl;
+var blockedSites = [
+	{
+		site: '.google.'
+	}
+];
 
 chrome.webNavigation.onBeforeNavigate.addListener(function(details) { 
+    
+	// .includes("world");
     chrome.storage.sync.get('isStudying', function(res){
 		var isStudying = res.isStudying;
 
 		if (isStudying) {
-			promptUser();
+
+			chrome.tabs.getSelected(null, function (tab) {
+				var url = new URL(tab.url);
+				domain = url.hostname;
+
+				blockedSites.forEach(function(e) {
+					if (domain.includes(e.site)) {
+						promptUser();
+					}
+				});
+		
+			});
 		}
 	});
 });

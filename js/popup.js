@@ -1,7 +1,9 @@
+var isStudying;
+
 document.addEventListener('DOMContentLoaded', function() {
 
 	chrome.storage.sync.get('isStudying', function(res){
-		var isStudying = res.isStudying;
+		isStudying = res.isStudying;
 
 		if (isStudying) {
 			document.getElementById('study_button').innerHTML = "Stop";
@@ -21,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function toggleStudyMode() {
 
 	chrome.storage.sync.get('isStudying', function(res){
-		var isStudying = res.isStudying;
+		isStudying = res.isStudying;
 
 		if (isStudying) {
 			isStudying = false;
